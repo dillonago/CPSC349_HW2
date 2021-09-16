@@ -80,40 +80,38 @@ function initializeEvents() {
     addKeyPressHandler();
 }
 
-function next(){
+function next() {
     var detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
     const imageName = detailImage.getAttribute('src');
     var thumbnailsArr = getThumbnailsArray();
-    for(let i=0; i<thumbnailsArr.length; i++){
-        if (thumbnailsArr[i].getAttribute('data-image-url')===imageName){
+    for (let i = 0; i < thumbnailsArr.length; i++) {
+        if (thumbnailsArr[i].getAttribute('data-image-url') === imageName) {
             var ind = i;
             break;
         }
     }
-    if(ind<9){
-        ind=ind+1;
-    }
-    else if(ind===9){
-        ind=0;
+    if (ind < 9) {
+        ind = ind + 1;
+    } else if (ind === 9) {
+        ind = 0;
     }
     setDetails(thumbnailsArr[ind].getAttribute('data-image-url'), thumbnailsArr[ind].getAttribute('data-image-title'));
 }
 
-function prev(){
+function prev() {
     var detailImage = document.querySelector(DETAIL_IMAGE_SELECTOR);
     const imageName = detailImage.getAttribute('src');
     var thumbnailsArr = getThumbnailsArray();
-    for(let i=0; i<thumbnailsArr.length; i++){
-        if (thumbnailsArr[i].getAttribute('data-image-url')===imageName){
+    for (let i = 0; i < thumbnailsArr.length; i++) {
+        if (thumbnailsArr[i].getAttribute('data-image-url') === imageName) {
             var ind = i;
             break;
         }
     }
-    if(ind>0){
-        ind=ind-1;
-    }
-    else if(ind===0){
-        ind=9;
+    if (ind > 0) {
+        ind = ind - 1;
+    } else if (ind === 0) {
+        ind = 9;
     }
     setDetails(thumbnailsArr[ind].getAttribute('data-image-url'), thumbnailsArr[ind].getAttribute('data-image-title'));
 }
